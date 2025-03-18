@@ -12,7 +12,6 @@ function StartLoading() {
     mutationFn: (params) => v1AuthTelegram(params),
   });
 
-  console.log("abc");
   useEffect(() => {
     try {
       const { initDataRaw, initData } = retrieveLaunchParams();
@@ -42,7 +41,6 @@ function StartLoading() {
     } catch (error) {}
   }, []);
 
-  console.log(loading, "loading");
   if (loading) {
     return (
       <div className="flex justify-center items-center h-full relative">
