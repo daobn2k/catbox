@@ -168,39 +168,36 @@ function OpenGift({ sendMessage, isLoaded, started }) {
     <>
       <Histories ref={historyRef} />
       <div className="flex justify-center items-center absolute top-[120px] w-full px-4 translate-y-[-85%] z-[9]">
-        {!isDisabled && (
-          <div className="flex items-center gap-3 w-full">
-            <button
-              disabled={isDisabled}
-              onClick={onClickOpenGift}
-              className={`${
-                isDisabled ? "cursor-not-allowed" : "active:scale-95"
-              } relative z-2 flex justify-center items-center rounded-[99px] w-[211px] h-[44px] bg-[#E56E50] shadow-[0px_2px_0px_0px_#642E22] gap-[8px] transform transition-transform duration-200 w-full`}
-            >
-              <img
-                src={image.tonCoin}
-                alt="coin"
-                className="w-[24px] h-[24px] rounded-full object-cover"
-              />
-              <p className="font-montserrat text-[16px] font-extrabold leading-[24px] tracking-[-0.02em] text-center decoration-none">
-                {metadata?.[ConfigKey.VALUE_NANOTONS_TRANSACTION]?.value
-                  ? metadata?.[ConfigKey.VALUE_NANOTONS_TRANSACTION]?.value *
-                    1e-9
-                  : 0}{" "}
-                to open gift
-              </p>
-            </button>
+        <div className="flex items-center gap-3 w-full">
+          <button
+            disabled={isDisabled}
+            onClick={onClickOpenGift}
+            className={`${
+              isDisabled ? "cursor-not-allowed" : "active:scale-95"
+            } relative z-2 flex justify-center items-center rounded-[99px] w-[211px] h-[44px] bg-[#E56E50] shadow-[0px_2px_0px_0px_#642E22] gap-[8px] transform transition-transform duration-200 w-full`}
+          >
+            <img
+              src={image.tonCoin}
+              alt="coin"
+              className="w-[24px] h-[24px] rounded-full object-cover"
+            />
+            <p className="font-montserrat text-[16px] font-extrabold leading-[24px] tracking-[-0.02em] text-center decoration-none">
+              {metadata?.[ConfigKey.VALUE_NANOTONS_TRANSACTION]?.value
+                ? metadata?.[ConfigKey.VALUE_NANOTONS_TRANSACTION]?.value * 1e-9
+                : 0}{" "}
+              to open gift
+            </p>
+          </button>
 
-            <button
-              onClick={() => historyRef.current.onOpen()}
-              className={`active:scale-95 relative z-2 flex justify-center items-center rounded-[99px] w-[120px] h-[44px] bg-[#E56E50] shadow-[0px_2px_0px_0px_#642E22] gap-[8px] transform transition-transform duration-200`}
-            >
-              <p className="font-montserrat text-[16px] font-extrabold leading-[24px] tracking-[-0.02em] text-center decoration-none">
-                History
-              </p>
-            </button>
-          </div>
-        )}
+          <button
+            onClick={() => historyRef.current.onOpen()}
+            className={`active:scale-95 relative z-2 flex justify-center items-center rounded-[99px] w-[120px] h-[44px] bg-[#E56E50] shadow-[0px_2px_0px_0px_#642E22] gap-[8px] transform transition-transform duration-200`}
+          >
+            <p className="font-montserrat text-[16px] font-extrabold leading-[24px] tracking-[-0.02em] text-center decoration-none">
+              History
+            </p>
+          </button>
+        </div>
       </div>
       {playGameMutation.isPending && (
         <div className="fixed inset-0 flex justify-center items-center bg-[#00000066] z-50 overflow-hidden">
