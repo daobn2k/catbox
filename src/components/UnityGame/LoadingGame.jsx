@@ -5,7 +5,7 @@ export default function LoadingGame({ isLoaded, started }) {
   return (
     <div
       className={clsx("fixed top-0 left-0 right-0 bottom-0 z-[999] bg-black", {
-        ["z-[-1]"]: started && isLoaded,
+        ["z-[-1] hidden"]: started && isLoaded,
       })}
     >
       <div className="flex justify-center items-center h-full relative">
