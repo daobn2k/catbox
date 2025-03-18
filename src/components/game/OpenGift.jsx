@@ -75,7 +75,7 @@ function OpenGift({ sendMessage, isLoaded, started }) {
       if (!playGameMutation.isPending) {
         refetchDataTurnCurrentGame();
       }
-    }, 4000);
+    }, 2000);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -83,7 +83,7 @@ function OpenGift({ sendMessage, isLoaded, started }) {
     if (!isLoaded || !started || !profile || isSendMessage) return;
     const details = dataTurnCurrentGame?.details?.filter((d) => !d.isViewDone);
     const gameView = dataTurnCurrentGame?.details?.find(
-      (d) => !d.isViewDone && d.userId === profile.id
+      (d) => !d.isViewDone && d?.userId === profile?.id
     );
     if (details?.length > 0) {
       const isExistUser = details.some((e) => e.userId === profile.id);
@@ -103,7 +103,7 @@ function OpenGift({ sendMessage, isLoaded, started }) {
       isJoined
     ) {
       const valueTon = metadata?.[ConfigKey.VALUE_NANOTONS_WIN]?.value * 1e-9;
-      const winId = dataTurnCurrentGame.winId;
+      const winId = dataTurnCurrentGame?.winId;
 
       if (gameView) {
         const params = {
